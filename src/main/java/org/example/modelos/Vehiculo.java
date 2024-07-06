@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Vehiculo {
 
     //INYECTANDO UNA DEPENDENCIA DE LA CLASE VehiculoValidacion
-    private VehiculoValidacion vehiculoValidacion=new VehiculoValidacion();
+    private VehiculoValidacion vehiculoValidacion = new VehiculoValidacion();
 
     //id
     private Integer id; //solo numeros positivos
@@ -39,8 +39,6 @@ public class Vehiculo {
     //avaluo
     private Integer avaluo; //solo positivos
 
-    //CONSTRUCTORES DE LA CLASE
-
 
     public Vehiculo() {
     }
@@ -48,7 +46,7 @@ public class Vehiculo {
     public Vehiculo(Integer id, String marca, LocalDate modelo, Double kilometraje, String color, String descripcion, String tipo, Integer autonomia, Double capacidadCarga, Integer avaluo) {
         this.id = id;
         this.marca = marca;
-        this.modelo = modelo;
+        this.modelo = modelo; //no
         this.kilometraje = kilometraje;
         this.color = color;
         this.descripcion = descripcion;
@@ -63,7 +61,12 @@ public class Vehiculo {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        try{
+            this.vehiculoValidacion.validarId(id);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getMarca() {
@@ -92,7 +95,12 @@ public class Vehiculo {
     }
 
     public void setKilometraje(Double kilometraje) {
-        this.kilometraje = kilometraje;
+        try{
+            this.vehiculoValidacion.validarkilometraje(kilometraje);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getColor() {
@@ -100,7 +108,12 @@ public class Vehiculo {
     }
 
     public void setColor(String color) {
-        this.color = color;
+        try{
+            this.vehiculoValidacion.validarColor(color);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getDescripcion() {
@@ -108,7 +121,12 @@ public class Vehiculo {
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        try{
+            this.vehiculoValidacion.validarDescripcion(descripcion);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getTipo() {
@@ -116,7 +134,12 @@ public class Vehiculo {
     }
 
     public void setTipo(String tipo) {
-        this.tipo = tipo;
+        try{
+            this.vehiculoValidacion.validarTipo(tipo);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public Integer getAutonomia() {
@@ -124,7 +147,12 @@ public class Vehiculo {
     }
 
     public void setAutonomia(Integer autonomia) {
-        this.autonomia = autonomia;
+        try{
+            this.vehiculoValidacion.validarAutonomia(autonomia);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public Double getCapacidadCarga() {
@@ -132,7 +160,12 @@ public class Vehiculo {
     }
 
     public void setCapacidadCarga(Double capacidadCarga) {
-        this.capacidadCarga = capacidadCarga;
+        try{
+            this.vehiculoValidacion.validarCapacidadCarga(capacidadCarga);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public Integer getAvaluo() {
@@ -140,6 +173,11 @@ public class Vehiculo {
     }
 
     public void setAvaluo(Integer avaluo) {
-        this.avaluo = avaluo;
+        try{
+            this.vehiculoValidacion.validarAvaluo(avaluo);
+            System.out.println("todo bien agonia");
+        }catch(Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 }

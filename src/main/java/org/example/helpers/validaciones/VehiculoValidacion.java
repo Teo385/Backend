@@ -1,52 +1,122 @@
 package org.example.helpers.validaciones;
 
-import org.example.helpers.mensajes.MensajesVehiculo;
+import org.example.helpers.generals.RegexValidator;
+import  org.example.helpers.mensajes.MensajesVehiculo;
+import org.example.helpers.mensajes.RegexExpresiones;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class VehiculoValidacion {
 
-    public boolean validarId(Integer id)throws Exception{
+    RegexValidator regexValidator = new RegexValidator();
 
-        if(id<0){
+    public boolean validarId(Integer id) throws Exception {
+
+        if (id < 0) {
             throw new Exception(MensajesVehiculo.ID_VEHICULO_ERRONEO.getMensajeError());
         }
 
         return true;
     }
-    public boolean validarMarca(String marca)throws Exception{
 
-        //VALIDAREMOS QUE UNA MARCA DE VAHICULO NO TENGA MAS 50 CARACTERES Y SOLO
-        //TENGA LETRAS Y ESPACIOS
+    public boolean validarMarca(String marca) throws Exception {
 
-        //COMO VALIDAR UNA CADENA DE TEXTO CON JAVA
-
-        //1. Se crea una expresion regular para validar el patron
-        String expresionRegular="^[a-zA-Z\\s]*$";
-
-        //2. Se debe crear un patron en el contexto de java
-        //con al expresion regular generada
-        Pattern patron=Pattern.compile(expresionRegular);
-
-        //3. Debo comparar el patron de java con la cadena
-        //de texto suministarda por el usuario
-        Matcher coincidencia=patron.matcher(marca);
-
-
-        //4.  Pregunto si hubo o no coincidencia
-        if(!coincidencia.matches()){
+        if (!regexValidator.validarRegex(marca, RegexExpresiones.VALIDAR_SOLO_LETRAS_Y_ESPACIOS.getExpresionRegular())) {
             //NO hubo coincidencia
-           throw new Exception("error en el formato del nombre de la marca");
+            throw new Exception(MensajesVehiculo.CARACTERES_INVALIDOS.getMensajeError());
         }
 
-        if(marca.length()>50){
-            throw new Exception("error en el tamaño de caracteres de la marca");
+        if (marca.length() > 50) {
+            throw new Exception(MensajesVehiculo.LONGITUD.getMensajeError());
         }
 
         return true;
 
     }
-    public boolean validarModelo(String fechaModelo)throws Exception{return true;}
+
+    public boolean validarModelo(String fechaModelo) throws Exception {
+        return true;
+    }
+
+    public boolean validarkilometraje(Double kilometraje) throws Exception {
+
+        if (kilometraje < 0) {
+            throw new Exception(MensajesVehiculo.VALOR_NEGATIVO.getMensajeError());
+        }
+
+        if (kilometraje > 100.000) {
+            throw new Exception(MensajesVehiculo.KILOMETRAJE_MAYOR.getMensajeError());
+        }
+        return true;
+    }
+
+    public boolean validarColor(String color) throws Exception {
+
+        if (!regexValidator.validarRegex(color, RegexExpresiones.VALIDAR_SOLO_LETRAS_Y_ESPACIOS.getExpresionRegular())) {
+
+            throw new Exception(MensajesVehiculo.CARACTERES_INVALIDOS.getMensajeError());
+        }
+
+        if (color.length() > 20) {
+            throw new Exception(MensajesVehiculo.LONGITUD.getMensajeError());
+        }
+
+        return true;
+    }
+
+    public boolean validarDescripcion(String descripcion) throws Exception {
+
+        if (!regexValidator.validarRegex(descripcion, RegexExpresiones.VALIDAR_SOLO_LETRAS_Y_ESPACIOS.getExpresionRegular())) {
+
+            throw new Exception(MensajesVehiculo.CARACTERES_INVALIDOS.getMensajeError());
+        }
+
+        if (descripcion.length() > 100) {
+            throw new Exception(MensajesVehiculo.LONGITUD.getMensajeError());
+        }
+
+        return true;
+    }
+
+    public boolean validarTipo(String tipo) throws Exception {
+
+        if (!regexValidator.validarRegex(tipo, RegexExpresiones.VALIDAR_LETRAS_SIN_ESPACIOS.getExpresionRegular())) {
+
+            throw new Exception(MensajesVehiculo.CARACTERES_INVALIDOS.getMensajeError());
+        }
+
+        return true;
+    }
+
+    public boolean validarAutonomia(Integer autonomia) throws Exception {
+
+        if (autonomia < 0) {
+            throw new Exception(MensajesVehiculo.VALOR_NEGATIVO.getMensajeError());
+        }
+
+        if (autonomia > 72) {
+            throw new Exception(MensajesVehiculo.AUTONOMIA_MAYOR.getMensajeError());
+        }
+        return true;
+    }
+
+    public boolean validarCapacidadCarga(Double capacidadCarga) throws Exception {
+
+        if (capacidadCarga < 0) {
+            throw new Exception(MensajesVehiculo.VALOR_NEGATIVO.getMensajeError());
+        }
+
+        if (capacidadCarga > 1000) {
+            throw new Exception(MensajesVehiculo.CAPACIDADCARGA_MAYOR.getMensajeError());
+        }
+        return true;
+    }
+
+    public boolean validarAvaluo(Integer avaluo) throws Exception {
+
+        if (avaluo < 0) {
+            throw new Exception(MensajesVehiculo.VALOR_NEGATIVO.getMensajeError());
+        }
+        return true;
+    }
 
 }

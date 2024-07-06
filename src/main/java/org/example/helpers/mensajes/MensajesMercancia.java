@@ -1,18 +1,16 @@
 package org.example.helpers.mensajes;
 
-public enum MensajesVehiculo {
-    ID_VEHICULO_ERRONEO("Revisa, no aceptamos id negativos"),
-    LONGITUD("Error en la longitud de los caracteres"),
+public enum MensajesMercancia {
+    ID_MERCANCIA_ERRONEO("Revisa, no aceptamos id negativos"),
     CARACTERES_INVALIDOS("Revise el caracteres ingresados"),
+    LONGITUD("Error en la longitud de los caracteres"),
     VALOR_NEGATIVO("El valor ingresado no puede ser menor de 0"),
-    KILOMETRAJE_MAYOR("El kilometraje no puede ser mayor a 100"),
-    AUTONOMIA_MAYOR("La autonomia no puedes ser mayor a 72"),
-    CAPACIDADCARGA_MAYOR("la capacidad de carga no puede ser mayor a 1.000"),
+    VOLUMEN_OCUPADO_MAYOR("El volumen ocupado no puede ser mayor a 100"),
+    PESO_MAYOR("El peso no puede ser mayor a 1.000")
     ;
-
     private String mensajeError;
 
-    MensajesVehiculo(String mensajeError) {
+    MensajesMercancia(String mensajeError) {
         this.mensajeError = mensajeError;
     }
 
