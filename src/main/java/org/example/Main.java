@@ -15,9 +15,9 @@ public class Main {
 
         Scanner lea = new Scanner(System.in);
         System.out.print("Digite: ");
-        mercancia.setPeso(lea.nextDouble());
+        vehiculo.setModelo(lea.next());
+        System.out.println(vehiculo.getModelo());
 
-
-
+        
     }
 }

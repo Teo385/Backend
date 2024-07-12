@@ -4,6 +4,9 @@ import org.example.helpers.generals.RegexValidator;
 import  org.example.helpers.mensajes.MensajesVehiculo;
 import org.example.helpers.mensajes.RegexExpresiones;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 public class VehiculoValidacion {
 
@@ -33,8 +36,13 @@ public class VehiculoValidacion {
 
     }
 
-    public boolean validarModelo(String fechaModelo) throws Exception {
-        return true;
+    public boolean validarModelo(String modelo) throws Exception {
+            if (!regexValidator.validarRegex(modelo, RegexExpresiones.VALIDAR_FECHA.getExpresionRegular())) {
+                throw new Exception(MensajesVehiculo.FORMATO_FECHA.getMensajeError());
+            }
+
+            return true;
+
     }
 
     public boolean validarkilometraje(Double kilometraje) throws Exception {

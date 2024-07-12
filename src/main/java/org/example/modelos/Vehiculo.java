@@ -16,7 +16,7 @@ public class Vehiculo {
     private String marca; //solo letras y espacios y maximo 50 caracteres sin caracteres especiales
 
     //modelo
-    private LocalDate modelo; //CON EL PROFE
+    private String modelo; //CON EL PROFE
 
     //kilometraje
     private Double kilometraje; //solo positivos y maximo 100.000
@@ -43,10 +43,10 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(Integer id, String marca, LocalDate modelo, Double kilometraje, String color, String descripcion, String tipo, Integer autonomia, Double capacidadCarga, Integer avaluo) {
+    public Vehiculo(Integer id, String marca, String modelo, Double kilometraje, String color, String descripcion, String tipo, Integer autonomia, Double capacidadCarga, Integer avaluo) {
         this.id = id;
         this.marca = marca;
-        this.modelo = modelo; //no
+        this.modelo = modelo;
         this.kilometraje = kilometraje;
         this.color = color;
         this.descripcion = descripcion;
@@ -82,12 +82,19 @@ public class Vehiculo {
         }
     }
 
-    public LocalDate getModelo() {
+    public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(LocalDate modelo) {
-        this.modelo = modelo;
+    public void setModelo(String modelo) {
+        try {
+            // Validar el formato del modelo utilizando VehiculoValidacion
+            this.vehiculoValidacion.validarModelo(modelo);
+            this.modelo = modelo;
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+            // Aquí podrías lanzar una excepción o manejar el error de otra manera según tu aplicación
+        }
     }
 
     public Double getKilometraje() {

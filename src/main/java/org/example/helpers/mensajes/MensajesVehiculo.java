@@ -8,6 +8,7 @@ public enum MensajesVehiculo {
     KILOMETRAJE_MAYOR("El kilometraje no puede ser mayor a 100"),
     AUTONOMIA_MAYOR("La autonomia no puedes ser mayor a 72"),
     CAPACIDADCARGA_MAYOR("la capacidad de carga no puede ser mayor a 1.000"),
+    FORMATO_FECHA("El formato de la fecha es invalido"),
     ;
 
     private String mensajeError;
