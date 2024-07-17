@@ -6,7 +6,7 @@ public enum MensajesMercancia {
     LONGITUD("Error en la longitud de los caracteres"),
     VALOR_NEGATIVO("El valor ingresado no puede ser menor de 0"),
     VOLUMEN_OCUPADO_MAYOR("El volumen ocupado no puede ser mayor a 100"),
-    PESO_MAYOR("El peso no puede ser mayor a 1.000")
+    PESO_MAYOR("El peso no puede ser mayor a 1.000")    
     ;
     private String mensajeError;
 

@@ -42,10 +42,11 @@ public class Mercancia {
     }
 
     public void setId(Integer id) {
-        try{
+        try {
             this.mercanciaValidacion.validarId(id);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.id = id;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
@@ -55,10 +56,11 @@ public class Mercancia {
     }
 
     public void setVolumenOcupado(Double volumenOcupado) {
-        try{
+        try {
             this.mercanciaValidacion.validarVolumenOcupado(volumenOcupado);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.volumenOcupado = volumenOcupado;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
@@ -68,10 +70,11 @@ public class Mercancia {
     }
 
     public void setTipo(String tipo) {
-        try{
+        try {
             this.mercanciaValidacion.validarTipo(tipo);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.tipo = tipo;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
@@ -81,10 +84,11 @@ public class Mercancia {
     }
 
     public void setPeso(Double peso) {
-        try{
+        try {
             this.mercanciaValidacion.validarPeso(peso);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.peso = peso;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
@@ -94,10 +98,11 @@ public class Mercancia {
     }
 
     public void setDescripcion(String descripcion) {
-        try{
+        try {
             this.mercanciaValidacion.validarDescripcion(descripcion);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.descripcion = descripcion;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
@@ -107,10 +112,11 @@ public class Mercancia {
     }
 
     public void setAvaluo(Integer avaluo) {
-        try{
+        try {
             this.mercanciaValidacion.validarAvaluo(avaluo);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.avaluo = avaluo;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
@@ -120,10 +126,11 @@ public class Mercancia {
     }
 
     public void setDireccionRemitente(String direccionRemitente) {
-        try{
+        try {
             this.mercanciaValidacion.validarDireccionRemitente(direccionRemitente);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.direccionRemitente = direccionRemitente;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
@@ -133,13 +140,13 @@ public class Mercancia {
     }
 
     public void setDireccionDestinatario(String direccionDestinatario) {
-        try{
+        try {
             this.mercanciaValidacion.validarDireccionDestinatario(direccionDestinatario);
             System.out.println("todo bien agonia");
-        }catch(Exception error){
+            this.direccionDestinatario = direccionDestinatario;
+        } catch (Exception error) {
             System.out.println(error.getMessage());
         }
     }
-
 
 }
